@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#10243a">
+  <title>Inspectie Studio</title>
+  <link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <div class="eyebrow">GitHub Pages · lokaal bruikbaar</div>
+    <h1>Inspectie Studio</h1>
+  </div>
+  <div class="top-actions">
+    <button id="saveProjectBtn" class="btn secondary">Project opslaan</button>
+    <button id="exportHtmlBtn" class="btn primary">Checksheet-HTML exporteren</button>
+  </div>
+</header>
+
+<main class="shell">
+  <aside class="sidebar card">
+    <nav class="tabs" aria-label="Onderdelen">
+      <button class="tab active" data-tab="project">Project</button>
+      <button class="tab" data-tab="branding">Huisstijl</button>
+      <button class="tab" data-tab="builder">Bouwer</button>
+      <button class="tab" data-tab="import">Import / export</button>
+    </nav>
+    <div class="saved-projects">
+      <h2>Lokale projecten</h2>
+      <select id="savedProjectsSelect"><option value="">Selecteer een project</option></select>
+      <div class="row-actions">
+        <button id="openProjectBtn" class="btn small">Openen</button>
+        <button id="deleteProjectBtn" class="btn small danger">Verwijderen</button>
+      </div>
+      <p class="hint">Projecten blijven op dit apparaat en in deze browser opgeslagen.</p>
+    </div>
+  </aside>
+
+  <section class="workspace">
+    <div id="panel-project" class="panel card active">
+      <h2>Projectgegevens</h2>
+      <div class="form-grid">
+        <label>Projectnaam<input id="projectName" value="Nieuwe checksheet"></label>
+        <label>Klantnaam<input id="customerName" value="Klantnaam"></label>
+        <label>Rapporttitel<input id="reportTitle" value="Inspectiechecksheet"></label>
+        <label>Ondertitel<input id="subtitle" value="Periodieke inspectie"></label>
+        <label>Standaardlocatie<input id="defaultLocation" value="Locatie"></label>
+        <label>Voettekst<input id="footerText" value="Gegenereerd met Inspectie Studio"></label>
+      </div>
+    </div>
+
+    <div id="panel-branding" class="panel card">
+      <h2>Huisstijl</h2>
+      <div class="form-grid">
+        <label>Primaire kleur<input id="primaryColor" type="color" value="#10243a"></label>
+        <label>Accentkleur<input id="accentColor" type="color" value="#1769aa"></label>
+        <label class="wide">Klantlogo<input id="logoInput" type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml"></label>
+      </div>
+      <div class="logo-preview-wrap"><img id="logoPreview" alt="Logo voorbeeld"><span id="logoEmpty">Nog geen logo gekozen</span></div>
+    </div>
+
+    <div id="panel-builder" class="panel card">
+      <div class="panel-head">
+        <div><h2>Visuele checksheetbouwer</h2><p class="hint">Maak secties en controlepunten zonder Excel.</p></div>
+        <button id="addSectionBtn" class="btn primary">Sectie toevoegen</button>
+      </div>
+      <div id="sectionsEditor"></div>
+    </div>
+
+    <div id="panel-import" class="panel card">
+      <h2>Import en export</h2>
+      <div class="import-grid">
+        <div class="import-box">
+          <h3>CSV uit Microsoft Excel</h3>
+          <p>Sla uw werkblad in Excel op als <strong>CSV UTF-8</strong>. Dit formaat geeft geen herstelmelding.</p>
+          <input id="csvInput" type="file" accept=".csv,text/csv">
+          <a class="btn link" href="templates/checksheet-sjabloon.csv" download>CSV-sjabloon downloaden</a>
+        </div>
+        <div class="import-box">
+          <h3>Projectback-up</h3>
+          <p>Gebruik JSON om een volledig bouwproject naar een ander apparaat te verplaatsen.</p>
+          <button id="exportJsonBtn" class="btn">JSON-back-up downloaden</button>
+          <label class="btn file-label">JSON-back-up openen<input id="jsonInput" type="file" accept="application/json,.json"></label>
+        </div>
+        <div class="import-box">
+          <h3>CSV exporteren</h3>
+          <p>Download de huidige controlepunten als CSV en bewerk ze verder in Excel.</p>
+          <button id="exportCsvBtn" class="btn">Huidige inhoud als CSV</button>
+        </div>
+      </div>
+      <div id="message" class="message" role="status"></div>
+    </div>
+
+    <div class="card preview-card">
+      <div class="panel-head"><div><h2>Live voorbeeld</h2><p class="hint">Het geëxporteerde HTML-bestand gebruikt dezelfde inhoud en huisstijl.</p></div></div>
+      <iframe id="previewFrame" title="Live voorbeeld"></iframe>
+    </div>
+  </section>
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>
