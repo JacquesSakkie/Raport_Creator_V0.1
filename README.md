@@ -1,5 +1,51 @@
 # Inspectie Studio v8
 
+## Bewerken na het invullen — volledige back-ups
+
+De bouwer en zelfstandige checksheet gebruiken nu hetzelfde back-upformaat. Een
+**bewerkbare back-up** bevat de checksheetdefinitie én alle ingevulde antwoorden,
+opmerkingen, foto's, locatiegegevens en herstelwerkzaamheden. Word en PDF blijven
+bedoeld voor de uiteindelijke rapportuitvoer.
+
+1. Kies in de ingevulde checksheet **Bewerkbare back-up** (of **Opslaan**).
+2. Open de bouwer (`index.html`) en ga naar **Import / export**.
+3. Kies **Project / inspectie-JSON openen** en selecteer de back-up.
+4. Voeg in **Bouwer** controlepunten of secties toe. Bestaande antwoorden blijven
+   gekoppeld aan hun controlepunt, ook na verplaatsen of hernoemen.
+5. Download opnieuw een bewerkbare back-up of exporteer de bijgewerkte HTML.
+
+**HTML opslaan** in de ingevulde checksheet maakt ook een zelfstandig HTML-bestand
+met de actuele inspectie erin. Dit kan later opnieuw worden geopend en ingevuld,
+ook zonder de browseropslag van het oorspronkelijke apparaat.
+
+### Bestaande inspecties herstellen
+
+Oude `*-opgeslagen.json`-bestanden bevatten antwoorden en foto's maar geen
+checksheetdefinitie. Open bij **Import / export** eerst de oorspronkelijke
+**checksheet-HTML** en daarna de bijbehorende oude inspectie-JSON. Download daarna
+een volledige bewerkbare back-up. Oudere bouwproject-JSON blijft ook ondersteund.
+
+Een niet-passende of ongeldige back-up wordt geweigerd voordat de huidige
+inspectie wordt vervangen. Herhaald openen vervangt de foto's; het voegt ze niet
+dubbel toe. Verwijderde controlepunten blijven in de inspectieback-up bewaard,
+maar verschijnen niet in de actuele checksheet of het rapport.
+
+### Grote rapporten en privacy
+
+Browseropslag kan te klein zijn voor inspecties met veel foto's. De checksheet
+meldt dit zichtbaar; downloaden van JSON of HTML blijft beschikbaar. Bewaar dus
+regelmatig een bestand. Foto's worden bij export/import niet opnieuw gecomprimeerd.
+
+Zet uitsluitend de applicatiebestanden in GitHub. Upload ingevulde inspecties,
+klantfoto's en persoonlijke back-ups niet naar een openbare repository.
+
+### Tests
+
+De applicatie heeft geen buildstap nodig. De back-upvalidatie kan worden getest
+met Node.js: `node --test tests/backup.test.cjs`. Daarnaast is de volledige
+workflow getest in Microsoft Edge, inclusief export/import, het toevoegen en
+verplaatsen van controles, volle browseropslag en een inspectie met 136 foto's.
+
 Nederlandstalige, statische checksheetbouwer voor GitHub Pages. Geen buildstap, server of database nodig.
 
 ## Belangrijk

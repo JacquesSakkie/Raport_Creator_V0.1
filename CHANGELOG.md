@@ -88,3 +88,13 @@
 - Added a "Benodigde herstelwerkzaamheden / actiepunten" field at the end of every inspection section.
 - Section action text is autosaved, included in JSON backups/restores, and included in Word/PDF output.
 - Existing Total + Used disk-space percentage calculation remains supported.
+
+
+## Bewerkbare inspectieback-ups
+
+- Volledige JSON bevat checksheet en ingevulde inspectie, inclusief foto’s.
+- Oude project-JSON en inspectie-JSON blijven ondersteund; oorspronkelijke HTML kan als sjabloon worden geopend.
+- Zelfstandig HTML opslaan bevat actuele inspectiegegevens.
+- Stabiele controlepuntidentiteit behoudt antwoorden bij verplaatsen en hernoemen.
+- Herhaald herstellen dupliceert foto’s niet; ongeldige import vervangt geen inspectie.
+- Zichtbare melding bij volle browseropslag; JSON/HTML-download blijft beschikbaar.

@@ -80,9 +80,11 @@
         </div>
         <div class="import-box">
           <h3>Projectback-up</h3>
-          <p>Gebruik JSON om een volledig bouwproject naar een ander apparaat te verplaatsen.</p>
-          <button id="exportJsonBtn" class="btn">JSON-back-up downloaden</button>
-          <label class="btn file-label">JSON-back-up openen<input id="jsonInput" type="file" accept="application/json,.json"></label>
+          <p>Bewaar de checksheet én de ingevulde inspectie, inclusief foto’s. Open deze back-up om controlepunten toe te voegen of de inspectie verder aan te vullen.</p>
+          <button id="exportJsonBtn" class="btn">Bewerkbare back-up downloaden</button>
+          <label class="btn file-label">Project / inspectie-JSON openen<input id="jsonInput" type="file" accept="application/json,.json"></label>
+          <p class="hint">Oude inspectie-JSON zonder checksheet? Open eerst de oorspronkelijke checksheet-HTML en daarna het JSON-bestand.</p>
+          <label class="btn file-label">Oorspronkelijke HTML openen<input id="htmlInput" type="file" accept=".html,.htm,text/html"></label>
         </div>
         <div class="import-box">
           <h3>CSV exporteren</h3>
@@ -99,6 +101,8 @@
     </div>
   </section>
 </main>
+<script src="assets/backup.js"></script>
+<script src="assets/report-backup.js"></script>
 <script src="assets/app.js"></script>
 </body>
 </html>
